@@ -91,7 +91,7 @@ int findGreatestDivisor(int n) {
 
 //Oppgave b, etc
 int main() {
-    std::setlocale(LC_ALL, "norwegian");
+    setlocale(LC_ALL, "norwegian");
 
     std::cout << "Oppgave a)" << std::endl;
     std::cout << maks(5, 6) << std::endl;
