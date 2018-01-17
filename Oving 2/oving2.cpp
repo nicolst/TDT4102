@@ -8,13 +8,15 @@ using namespace std;
 
 // Oppgave 1a
 void inputAndPrintInteger() {
+    cout << "Skriv inn et tall: ";
     int nummer;
     cin >> nummer;
-    cout << nummer << endl;
+    cout << "Du skrev: " << nummer << endl;
 }
 
 // Oppgave 1b
 int inputInteger() {
+    cout << "Skriv inn et tall: ";
     int nummer;
     cin >> nummer;
     return nummer;
@@ -40,35 +42,41 @@ void printHumanReadableTime(int seconds) {
     int hours = seconds / 3600;
     int minutes = (seconds % 3600) / 60;
     int sec = seconds % 60;
-    if (hours != 0) cout << hours << " time" << ((hours == 1) ? ", " : "r, ");
-    if (minutes != 0) cout << minutes << " minutt" << ((minutes == 1) ? ", " : "er, ");
-    cout << sec << " sekund" << ((sec == 1) ? "." : "er.") << endl;
+    if (hours != 0) cout << hours << " time" << ((hours == 1) ? "" : "r") << ((minutes == 0 && sec == 0) ? "." : ", ");
+    if (minutes != 0) cout << minutes << " minutt" << ((minutes == 1) ? "" : "er") << ((sec == 0) ? "." : ", ");
+    if (sec != 0) cout << sec << " sekund.";
+    cout << endl;
 }
 
 // Oppgave 2a
-// Oppgave 2b: while når man angir antall tall, slipper å lage "hjelpevariablen" i
+// Oppgave 2b: while når man angir antall tall, kortere syntaks, slipper å skrive inn condition
+//           : kan bruke for også, men det blir bare lengre, foretrekker while
+//           : for å vente på 0 ville jeg bare brukt en while(true)-loop med en if for break ved 0-input
 void inputIntegersUsngLoopAndPrintSum() {
     int m;
     cin >> m;
     int sum = 0;
     while (m--) {
+        cout << "Skriv inn et tall: ";
         int n;
         cin >> n;
         sum += n;
     }
-    cout << sum;
+    cout << "Sum: " << sum << endl;
 }
 
 
 
 // Oppgave 2c
 double inputDouble() {
+    cout << "Skriv inn et (desimal)tall: ";
     double i;
     cin >> i;
     return i;
 }
 
-// skriv om med setprecison,fixed
+// Oppgave 2d
+// Bør bruke inputDouble for vi har lyst å kunne oppi f.eks. øre, pengesummer med desimaler
 double nokToEur() {
     int nok;
     while (true) {
@@ -159,38 +167,33 @@ void calculateLoanPayments() {
     }
 }
 
+void demonstrerOving() {
+    cout << "Oppgave 1a" << endl;
+    inputAndPrintInteger();
+
+    cout << "Oppgave 1b" << endl;
+    int nummer = inputInteger();
+    cout << "Du skrev: " << nummer << endl;
+
+    cout << "Oppgave 1e" << endl;
+    for (int i = 10; i < 15; i++) {
+        cout << i << " er et " << (isOdd(i) ? "oddetall." : "partall.") << endl;
+    }
+
+    cout << "Oppgave 1f" << endl;
+    cout << "3601 sekund: ";
+    printHumanReadableTime(3601);
+    cout << "3660 sekund: ";
+    printHumanReadableTime(3660);
+    cout << "67 sekund: ";
+    printHumanReadableTime(67);
+    cout << "3599 sekund: ";
+    printHumanReadableTime(3599);
+}
+
 
 int main() {
     setlocale(LC_ALL, "Norwegian");
-
-//    inputAndPrintInteger();
-//
-//    int nummer = inputInteger();
-//    cout << "Du skrev: " << nummer << endl;
-//
-//    inputIntegersAndPrintSum();
-//
-//    for (int i = 10; i < 15; i++) {
-//        cout << i << " er et " << (isOdd(i) ? "oddetall." : "partall.") << endl;
-//    }
-//
-//    printHumanReadableTime(3601);
-//    printHumanReadableTime(67);
-//    printHumanReadableTime(3599);
-//
-//    inputIntegersUsngLoopAndPrintSum();
-//
-//    int nok;
-//    while (true) {
-//        int temp;
-//        cout << "Antall NOK: ";
-//        cin >> temp;
-//        if (temp > 0) {
-//            nok = temp;
-//            break;
-//        }
-//    }
-//    cout << nokToEur(nok);
 
     // Oppgave 3a, 4d,e
     while (true) {
@@ -202,7 +205,8 @@ int main() {
         cout << "4) Print gangetabell" << endl;
         cout << "5) Finn reelle røtter til et andregradsuttrykk" << endl;
         cout << "6) Kalkuler lån" << endl;
-        cout << "Angi valg (0-6): ";
+        cout << "7) Demonstrer at resten av øvingen fungerer...";
+        cout << "Angi valg (0-7): ";
         int choice;
         cin >> choice;
 
@@ -226,6 +230,9 @@ int main() {
                 break;
             case 6:
                 calculateLoanPayments();
+                break;
+            case 7:
+                demonstrerOving();
                 break;
             default:
                 cout << "Ugyldig valg." << endl;
