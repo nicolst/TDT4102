@@ -3,6 +3,8 @@ project(TDT4102)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(oving1 "Oving 1/oving1.cpp")
+add_executable(oving1 "Oving 1/oving1.cpp" "Oving 3/cannonball.cpp")
 
 add_executable(oving2 "Oving 2/oving2.cpp")
+
+add_executable(oving3 "Oving 3/main.cpp" "Oving 3/cannonball.h" "Oving 3/cannonball.cpp")
