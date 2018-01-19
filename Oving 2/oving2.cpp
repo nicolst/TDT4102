@@ -78,9 +78,9 @@ double inputDouble() {
 // Oppgave 2d
 // Bør bruke inputDouble for vi har lyst å kunne oppi f.eks. øre, pengesummer med desimaler
 double nokToEur() {
-    int nok;
+    double nok;
     while (true) {
-        int temp;
+        double temp;
         cout << "Antall NOK: ";
         cin >> temp;
         if (temp > 0) {

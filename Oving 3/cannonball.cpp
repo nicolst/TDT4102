@@ -6,6 +6,8 @@
 #include <iostream>
 #include "cannonball.h"
 #include <math.h>
+#include <iomanip>
+#include "utilities.h"
 
 using namespace std;
 
@@ -27,7 +29,16 @@ double posY(double initPosition, double initVelocity, double time) {
 }
 
 void printTime(double time) {
-    printHumanReadableTime(time);
+    cout << setprecision(2);
+    int secondsi = static_cast<int>(floor(time));
+    int hours = secondsi / 3600;
+    int minutes = (secondsi % 3600) / 60;
+    double sec = (secondsi % 60) + (time - secondsi);
+    if (hours != 0) cout << hours << " time" << ((hours == 1) ? "" : "r") << (((minutes == 0) && (sec == 0)) ? "." : ", ");
+    if (minutes != 0) cout << minutes << " minutt" << ((minutes == 1) ? "" : "er") << ((sec == 0.0) ? "." : ", ");
+    if (sec != 0.0) cout << sec  << " sekund.";
+    cout << endl;
+    cout << sec - secondsi%60 << endl;
 }
 
 double flightTime(double initVelocityY) {
@@ -70,12 +81,21 @@ double targetPractice(double distanceToTarget, double velocityX, double velocity
     return distanceToTarget - distanceTraveled;
 }
 
-void printHumanReadableTime(double seconds) {
-    int secondsi = static_cast<int>(floor(seconds));
-    int hours = secondsi / 3600;
-    int minutes = (secondsi % 3600) / 60;
-    double sec = secondsi % 60 + (seconds - secondsi);
-    if (hours != 0) cout << hours << " time" << ((hours == 1) ? ", " : "r, ");
-    if (minutes != 0) cout << minutes << " minutt" << ((minutes == 1) ? ", " : "er, ");
-    cout << sec << " sekund." << endl;
+void playTargetPractice() {
+    int target = randomWithLimits(100, 1000);
+    int tries = 10;
+    bool won = false;
+    while (tries-- && !won) {
+        double vinkel, startfart;
+        getUserInput(&vinkel, &startfart);
+
+        double velX, velY;
+        getVelocityVector(vinkel, startfart, &velX, &velY);
+
+        double distanceFrom = targetPractice(target, velX, velY);
+
+        if (abs(distanceFrom) < 5) won = true;
+        cout << "Du skutte " << abs(distanceFrom) << " meter for " << ((distanceFrom > 0) ? "kort." : "langt.") << endl;
+    }
+    cout << "Du " << (won ? "vant!" : "tapte..") << endl;
 }

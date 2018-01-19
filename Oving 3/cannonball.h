@@ -16,8 +16,6 @@ void printTime(double time);
 
 double flightTime(double initVelocityY);
 
-void printHumanReadableTime(double time);
-
 void getUserInput(double *theta, double *absVelocity);
 
 double degToRad(double deg);
@@ -30,6 +28,8 @@ void getVelocityVector(double theta, double absVelocity, double *velocityX, doub
 double getDistanceTraveled(double velocityX, double velocityY);
 
 double targetPractice(double distanceToTarget, double velocityX, double velocityY);
+
+void playTargetPractice();
 
 
 #endif //TDT4102_CANNONBALL_H
