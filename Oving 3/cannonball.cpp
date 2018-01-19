@@ -5,7 +5,6 @@
 #include <cmath>
 #include <iostream>
 #include "cannonball.h"
-#include <math.h>
 #include <iomanip>
 #include "utilities.h"
 

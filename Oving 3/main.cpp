@@ -38,16 +38,16 @@ int main() {
         avvikPosX[i] = avvikPosX[i] - posX(initPosX, initVelX, times[i]);
         avvikPosY[i] = avvikPosY[i] - posY(initPosY, initVelY, times[i]);
     }
-    cout << fixed << setprecision(4);
-    cout << "\t\tT=0.0\t\tT=2.5\t\tT=5.0" << endl;
-    cout << "acclX\t" << avvikAcclX[0] << "\t\t" << avvikAcclX[1] << "\t\t\t" << avvikAcclX[2] << endl;
-    cout << "acclY\t" << avvikAcclY[0] << "\t\t" << avvikAcclY[1] << "\t\t\t" << avvikAcclY[2] << endl;
+    cout << fixed << setprecision(4)
+         << "\t\tT=0.0\t\tT=2.5\t\tT=5.0" << endl
+         << "acclX\t" << avvikAcclX[0] << "\t\t" << avvikAcclX[1] << "\t\t\t" << avvikAcclX[2] << endl
+         << "acclY\t" << avvikAcclY[0] << "\t\t" << avvikAcclY[1] << "\t\t\t" << avvikAcclY[2] << endl
 
-    cout << "velX\t" << avvikVelX[0] << "\t\t" << avvikVelX[1] << "\t\t\t" << avvikVelX[2] << endl;
-    cout << "velY\t" << avvikVelY[0] << "\t\t" << avvikVelY[1] << "\t\t\t" << avvikVelY[2] << endl;
+         << "velX\t" << avvikVelX[0] << "\t\t" << avvikVelX[1] << "\t\t\t" << avvikVelX[2] << endl
+         << "velY\t" << avvikVelY[0] << "\t\t" << avvikVelY[1] << "\t\t\t" << avvikVelY[2] << endl
 
-    cout << "posX\t" << avvikPosX[0] << "\t\t" << avvikPosX[1] << "\t\t\t" << avvikPosX[2] << endl;
-    cout << "posY\t" << avvikPosY[0] << "\t\t" << avvikPosY[1] << "\t\t\t" << avvikPosY[2] << endl;
+         << "posX\t" << avvikPosX[0] << "\t\t" << avvikPosX[1] << "\t\t\t" << avvikPosX[2] << endl
+         << "posY\t" << avvikPosY[0] << "\t\t" << avvikPosY[1] << "\t\t\t" << avvikPosY[2] << endl;
 
 
     cout << endl << "Tester printTime:" << endl;
@@ -62,16 +62,16 @@ int main() {
     for (int i = 0; i < 5; i++)
         cout << randomWithLimits(100, 199) << endl;
 
-    cout << "Tester getUserInput, (getVelocityX, getVelocityY) (getVelocityVector), flightTime og targetPractice (100m):" << endl;
+    cout << endl << "Tester getUserInput, (getVelocityX, getVelocityY) (getVelocityVector), flightTime og targetPractice (100m):" << endl;
     double theta, vel;
     getUserInput(&theta, &vel);
     double velX, velY;
     getVelocityVector(theta, vel, &velX, &velY);
-    cout << "theta: " << theta << " | velocity: " << vel << endl;
-    cout << "velX: " << velX << " | velY: " << velY << endl;
+    cout << "theta: " << theta << " | velocity: " << vel << endl
+         << "velX: " << velX << " | velY: " << velY << endl;
     double ft = flightTime(velY);
-    cout << "flightTime: " << ft << endl;
-    cout << "targetPractice: " << targetPractice(100.0, velX, velY)<< endl;
+    cout << "flightTime: " << ft << endl
+         << "targetPractice: " << targetPractice(100.0, velX, velY)<< endl;
 
     cout << "Tester så playTargetPractice: " << endl;
     playTargetPractice();
