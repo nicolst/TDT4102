@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -77,7 +78,7 @@ double inputDouble() {
 
 // Oppgave 2d
 // Bør bruke inputDouble for vi har lyst å kunne oppi f.eks. øre, pengesummer med desimaler
-double nokToEur() {
+void nokToEur() {
     double nok;
     while (true) {
         double temp;
@@ -88,7 +89,7 @@ double nokToEur() {
             break;
         }
     }
-    return nok*9.64;
+    cout << fixed << setprecision(2) << nok*9.64 << endl;
 }
 
 // Oppgave 3b
