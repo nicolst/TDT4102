@@ -39,7 +39,7 @@ int main() {
         avvikPosY[i] = avvikPosY[i] - posY(initPosY, initVelY, times[i]);
     }
     cout << fixed << setprecision(4)
-         << "\t\tT=0.0\t\tT=2.5\t\tT=5.0" << endl
+         << "\t\tT=0.0\t\tT=2.5\t\t\tT=5.0" << endl
          << "acclX\t" << avvikAcclX[0] << "\t\t" << avvikAcclX[1] << "\t\t\t" << avvikAcclX[2] << endl
          << "acclY\t" << avvikAcclY[0] << "\t\t" << avvikAcclY[1] << "\t\t\t" << avvikAcclY[2] << endl
 
