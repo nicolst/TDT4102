@@ -12,7 +12,10 @@ using namespace std;
 const int SIZE = 4;
 const int LETTERS = 6;
 
-void playMastermind(int maxGuesses) {
+void playMastermind() {
+    cout << "Hva skal maks antall gjetninger være? ";
+    int maxGuesses;
+    cin >> maxGuesses;
     char code[SIZE + 1];
     char guess[SIZE + 1];
     code[SIZE] = '\0';
@@ -21,8 +24,7 @@ void playMastermind(int maxGuesses) {
     int correct = 0;
     int guesses = 0;
     while ((correct < SIZE) && (guesses < maxGuesses)) {
-        cout << "Gjett " << SIZE << " bokstaver mellom A og " << (char) ('A' + LETTERS - 1) << ":";
-        readInputToCString(guess, SIZE, 'A', 'A' + SIZE - 1);
+        readInputToCString(guess, SIZE, 'A', 'A' + SIZE);
         correct = checkCharactersAndPosition(code, guess);
         int charCount = checkCharacters(code, guess);
         cout << "Riktig plasserte: " << correct << " | " << "Riktige bokstaver: " << charCount << endl;
@@ -41,7 +43,7 @@ void playMastermind(int maxGuesses) {
             case 'N':
                 return;
             case 'Y':
-                playMastermind(maxGuesses);
+                playMastermind();
                 break;
             default:
                 cout << "Ugyldig valg." << endl;

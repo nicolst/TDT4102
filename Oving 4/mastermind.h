@@ -7,7 +7,7 @@
 
 #endif //TDT4102_MASTERMIND_H
 
-void playMastermind(int maxGuesses);
+void playMastermind();
 
 int checkCharactersAndPosition(char *code, char *guess);
 

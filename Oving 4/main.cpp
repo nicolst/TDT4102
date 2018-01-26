@@ -46,10 +46,7 @@ int main() {
                 testCStrings(false);
                 break;
             case 7:
-                cout << "Hva skal maks antall gjetninger være? ";
-                int maxGuesses;
-                cin >> maxGuesses;
-                playMastermind(maxGuesses);
+                playMastermind();
                 break;
             default:
                 cout << "Ugyldig valg\n";
