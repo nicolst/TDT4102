@@ -20,11 +20,11 @@ void playMastermind() {
     char guess[SIZE + 1];
     code[SIZE] = '\0';
     guess[SIZE] = '\0';
-    randomizeCString(code, SIZE, 'A', 'A' + SIZE);
+    randomizeCString(code, SIZE, 'A', 'A' + LETTERS);
     int correct = 0;
     int guesses = 0;
     while ((correct < SIZE) && (guesses < maxGuesses)) {
-        readInputToCString(guess, SIZE, 'A', 'A' + SIZE);
+        readInputToCString(guess, SIZE, 'A', 'A' + LETTERS);
         correct = checkCharactersAndPosition(code, guess);
         int charCount = checkCharacters(code, guess);
         cout << "Riktig plasserte: " << correct << " | " << "Riktige bokstaver: " << charCount << endl;

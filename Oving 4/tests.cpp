@@ -65,7 +65,7 @@ void testCStrings(bool randomize) {
     if (randomize) {
         randomizeCString(grades, 40, 'A', 'F');
     } else {
-        readInputToCString(grades, 40, 'A', 'E');
+        readInputToCString(grades, 40, 'A', 'F');
     }
     cout << grades << endl;
 

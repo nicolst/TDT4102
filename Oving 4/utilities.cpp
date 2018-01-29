@@ -65,23 +65,25 @@ double medianOfArray(int *arr, int length) {
     return (arr[first] + arr[second]) / 2.0;
 }
 
+// Nedre inklusiv, øvre eksklusiv
 void randomizeCString(char *arr, int length, char lower, char upper) {
     for (int i = 0; i < length; i++) {
         arr[i] = (char) randomWithLimits(lower, upper);
     }
 }
 
+// Nedre inklusiv, øvre eksklusiv
 void readInputToCString(char *arr, int length, char lower, char upper) {
     lower = (char) toupper(lower);
     upper = (char) toupper(upper);
     int i = 0;
     while (i < length) {
         string s;
-        cout << "Skriv bokstaver (" << lower << "-" << upper << ") (trenger " << (length - i) << " bokstaver til): ";
+        cout << "Skriv bokstaver (" << lower << "-" << ((char) (upper-1)) << ") (trenger " << (length - i) << " bokstaver til): ";
         cin >> s;
         for (char c : s) {
             c = (char) toupper(c);
-            if ((c < lower) || (c > upper)) {
+            if ((c < lower) || (c >= upper)) {
                 cout << "Ugyldig bokstav." << endl;
                 continue;
             }

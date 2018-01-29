@@ -10,7 +10,7 @@
 using namespace std;
 
 int main() {
-    srand(time(nullptr));
+    srand(static_cast<unsigned int>(time(nullptr)));
 
     cout << "Avvik for funksjoner vs forventet verdi: " << endl;
     double times[3] = {0.0, 2.5, 5.0};
