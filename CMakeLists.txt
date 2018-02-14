@@ -10,3 +10,5 @@ add_executable(oving2 "Oving 2/oving2.cpp")
 add_executable(oving3 "Oving 3/main.cpp" "Oving 3/cannonball.h" "Oving 3/cannonball.cpp" "Oving 3/utilities.h" "Oving 3/utilities.cpp")
 
 add_executable(oving4 "Oving 4/main.cpp" "Oving 4/utilities.h" "Oving 4/utilities.cpp" "Oving 4/tests.h" "Oving 4/tests.cpp" "Oving 4/mastermind.h" "Oving 4/mastermind.cpp")
+
+add_executable(oving5 "Oving 5/main.cpp" "Oving 5/card.h" "Oving 5/card.cpp" "Oving 5/carddeck.h" "Oving 5/carddeck.cpp" "Oving 5/blackjack.h" "Oving 5/blackjack.cpp")

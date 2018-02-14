@@ -5,6 +5,7 @@
 // Oppgave 1a) 5, verdien endres ikke
 
 #include <iostream>
+#include <ctime>
 #include "tests.h"
 #include "mastermind.h"
 
