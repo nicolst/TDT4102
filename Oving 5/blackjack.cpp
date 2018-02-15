@@ -13,13 +13,13 @@ bool Blackjack::isAce(Card *card) {
 int Blackjack::getCardValue(Card *card) {
     Rank rank = card->getRank();
     if (rank == Rank::ACE) return -1;
-    if (Rank::JACK < rank < Rank::KING) return 10;
+    if (JACK <= rank && rank <= KING) return 10;
     return rank;
 }
 
 int Blackjack::getPlayerCardValue(Card *card) {
     if (isAce(card)) {
-        std::cout << "You got an ace! Do you want your ace value to be 1 or 11? ";
+        std::cout << "Do you want your ace value to be 1 or 11? ";
 
         int value;
         std::cin >> value;
@@ -57,7 +57,9 @@ bool Blackjack::askPlayerDrawCard() {
 void Blackjack::drawInitialCards() {
     for (int i = 0; i < 2; i++) {
         Card playerCard = deck.drawCard();
-        std::cout << playerCard.toString() << std::endl;
+        std::cout << "You drew a"
+                  << ((playerCard.getRank() == EIGHT || playerCard.getRank() == ACE) ? "n " : " ")
+                  << playerCard.toString() << std::endl;
         Card dealerCard = deck.drawCard();
         playerCardsDrawn++;
         dealerCardsDrawn++;
@@ -67,38 +69,42 @@ void Blackjack::drawInitialCards() {
 }
 
 void Blackjack::printScores(bool showDealerScore) {
-    std::cout << "\tCards drawn\tCard value" << std::endl
-              << "Dealer\t" << dealerCardsDrawn << "\t\t" << (showDealerScore ? std::to_string(dealerHand) : "xx") << std::endl
-              << "You\t" << playerCardsDrawn << "\t\t" << playerHand << std::endl;
+    std::cout << "-------------------------------" << std::endl
+              << "\t\tCards drawn\tCard value" << std::endl
+              << "Dealer\t" << dealerCardsDrawn << "\t\t\t"
+              << (showDealerScore ? std::to_string(dealerHand) : "xx") << std::endl
+              << "You\t\t" << playerCardsDrawn << "\t\t\t" << playerHand << std::endl
+              << "-------------------------------" << std::endl;
 }
 
 void Blackjack::playGame() {
-    bool finished = false;
     deck = CardDeck();
-    deck.printShort();
     deck.shuffle();
-    std::cout << std::endl;
-    deck.printShort();
     playerHand = 0;
     dealerHand = 0;
     playerCardsDrawn = 0;
     dealerCardsDrawn = 0;
 
+    std::cout << "---------- BLACKJACK ----------" << std::endl;
+
     drawInitialCards();
 
     bool drawn = true;
-    while(!finished && drawn) {
+    while(drawn) {
         printScores(false);
         drawn = false;
         if (askPlayerDrawCard()) {
-            drawn++;
+            drawn = true;
             playerCardsDrawn++;
             Card playerCard = deck.drawCard();
+            std::cout << "You drew a"
+                      << ((playerCard.getRank() == EIGHT || playerCard.getRank() == ACE) ? "n " : " ")
+                      << playerCard.toString() << std::endl;
             playerHand += getPlayerCardValue(&playerCard);
             if (playerHand > 21) break;
         }
         if (dealerHand < 17) {
-            drawn++;
+            drawn = true;
             dealerCardsDrawn++;
             Card dealerCard = deck.drawCard();
             dealerHand += getDealerCardValue(&dealerCard, dealerHand);
