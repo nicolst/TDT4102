@@ -9,6 +9,8 @@
 int main() {
     std::srand(time(nullptr));
 
+    std::cout << Rank::THREE << std::endl;
+
     CardStruct card1{Suit::HEARTS, Rank::ACE};
     CardStruct card2{Suit::SPADES, Rank::FIVE};
 
