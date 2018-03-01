@@ -2,10 +2,10 @@
 // Created by Nicolai Stølen on 16/02/2018.
 //
 
+
 #include <SFML/graphics.hpp>
 #include <iostream>
 #include "Person.h"
-#include "game.h"
 
 using namespace std;
 

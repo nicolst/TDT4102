@@ -1,4 +1,7 @@
-#pragma once
+#ifndef TDT4102_GAMEOBJECTS_H
+#define TDT4102_GAMEOBJECTS_H
+
+#endif //TDT4102_GAMEOBJECTS_H
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
