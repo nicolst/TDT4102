@@ -38,3 +38,10 @@ if(SFML_FOUND)
 endif()
 
 add_executable(oving7 "Oving 7/main.cpp" "Oving 7/fibonacci.h" "Oving 7/fibonacci.cpp" "Oving 7/matrix.h" "Oving 7/matrix.cpp" "Oving 7/dummy.h" "Oving 7/dummy.cpp")
+
+add_executable(oving9 "Oving 9/main.cpp" "Oving 9/Minesweeper.cpp" "Oving 9/Minesweeper.h" "Oving 9/sansation.ttf")
+
+if(SFML_FOUND)
+    include_directories(${SFML_INCLUDE_DIR})
+    target_link_libraries(oving9 ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
+endif()
