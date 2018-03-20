@@ -2,8 +2,6 @@
 // Created by Nicolai Stølen on 20/03/2018.
 //
 
-#include <cmath>
-#include <iostream>
 #include "Line.h"
 
 Line::Line(Color color, Point start, Point end): Shape(color), start(start), end(end), diff(end-start) {}
