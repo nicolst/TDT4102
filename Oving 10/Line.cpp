@@ -11,7 +11,6 @@ Line::Line(Color color, Point start, Point end): Shape(color), start(start), end
 void Line::draw(Image &im) {
     bool vertical = diff.y > diff.x;
     double slope = (vertical ? 1.0 * diff.x / diff.y : 1.0 * diff.y / diff.x);
-    std:: cout << "slope: " << slope << std::endl;
 
     int start1 = (vertical ? start.y : start.x);
     int end1 = (vertical ? end.y : end.x);
