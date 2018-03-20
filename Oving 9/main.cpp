@@ -3,7 +3,6 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
-#include <windows.h>
 
 #include "Minesweeper.h"
 
@@ -25,19 +24,13 @@ const sf::Color number_colors[9] = {
 const sf::Color mine_color = sf::Color::Red;
 const sf::Color flag_color = sf::Color::Blue;
 
-const int tile_size = 32;
+const int tile_size = 64;
 const int border_size = 2;
 
-std::string getexepath()
-{
-    char result[ MAX_PATH ];
-    return std::string( result, GetModuleFileName( NULL, result, MAX_PATH ) );
-}
 
 int main() {
     srand(time(nullptr));
 
-    std::cout << getexepath();
 
     sf::Font font;
     if (!font.loadFromFile("sansation.ttf")){
