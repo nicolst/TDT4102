@@ -45,3 +45,5 @@ if(SFML_FOUND)
     include_directories(${SFML_INCLUDE_DIR})
     target_link_libraries(oving9 ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
 endif()
+
+add_executable(oving10 "Oving 10/main.cpp" "Oving 10/Matrix.h" "Oving 10/Matrix.cpp" "Oving 10/Image.h" "Oving 10/Image.cpp" "Oving 10/ImageIO.cpp" "Oving 10/Vector.h" "Oving 10/Vector.cpp" "Oving 10/Shape.h" "Oving 10/Shape.cpp" "Oving 10/Line.h" "Oving 10/Line.cpp" "Oving 10/Rectangle.h" "Oving 10/Rectangle.cpp" "Oving 10/Canvas.h" "Oving 10/Canvas.cpp")

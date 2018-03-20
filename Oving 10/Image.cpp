@@ -8,40 +8,44 @@
  * all the functions in this file.                   *
  *****************************************************/
 
-Image::Image( int width, int height ) {
-   /* Enter your code here */
+
+Image::Image(int width, int height) : width(width), height(height) {
+    data = new Color[width*height];
 }
 
-Image::~Image()  {
-   /* Enter your code here */
+Image::~Image() {
+    /* Enter your code here */
+    delete[] data;
 }
 
 int Image::getWidth() const {
-   /* Enter your code here */
-   return 0;
-}
-int Image::getHeight() const  {
-   /* Enter your code here */
-   return 0;
+    return width;
 }
 
-const Pixel * Image::getScanLine(int line) const  {
-   /* Enter your code here */
-   return nullptr;
-}
-Pixel * Image::getScanLine(int line) {
-   /* Enter your code here */
-   return nullptr;
+int Image::getHeight() const {
+    return height;
 }
 
-Color Image::getPixelColor( int x, int y ) const {
-   /* Enter your code here */
-   return Color();
-}
-void Image::setPixelColor( int x, int y, const Color &color ) {
-   /* Enter your code here */
+const Pixel *Image::getScanLine(int line) const {
+    return &data[line*width];
 }
 
-void Image::fill( const Color &color ) {
-   /* Enter your code here */
+Pixel *Image::getScanLine(int line) {
+    return &data[line*width];
+}
+
+Color Image::getPixelColor(int x, int y) const {
+    if (x >= width || y >= height) return Color();
+    return data[y*width + x];
+}
+
+void Image::setPixelColor(int x, int y, const Color &color) {
+    if (x >= width || y >= height) return;
+    data[y*width + x] = color;
+}
+
+void Image::fill(const Color &color) {
+    for (int i = 0; i < width*height; i++) {
+        data[i] = color;
+    }
 }

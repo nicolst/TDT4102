@@ -11,14 +11,17 @@
 
 // Color struct, used to set and retrieve colors from the image.
 struct Color {
-	Color( unsigned char r, unsigned char g, unsigned char b ) : red( r ), green( g ), blue( b ) {
-		/*Empty*/
-	}
-	Color() : red( 0 ), green( 0 ), blue( 0 ) {
-		/*Empty*/
-	}
-	unsigned char red, green, blue;
+    Color(unsigned char r, unsigned char g, unsigned char b) : red(r), green(g), blue(b) {
+        /*Empty*/
+    }
+
+    Color() : red(0), green(0), blue(0) {
+        /*Empty*/
+    }
+
+    unsigned char red, green, blue;
 };
+
 using Pixel = Color; //In this aplication a Color and a Pixel are the same.
 
 /** Image Class.
@@ -28,23 +31,27 @@ using Pixel = Color; //In this aplication a Color and a Pixel are the same.
  */
 class Image {
 public:
-	Image( int width, int height );
-	~Image();
+    Image(int width, int height);
 
-	int getWidth() const;
-	int getHeight() const;
+    ~Image();
 
-	const Pixel *getScanLine(int line) const;
-	Pixel *getScanLine(int line);
+    int getWidth() const;
 
-	Color getPixelColor( int x, int y ) const;
-	void setPixelColor( int x, int y, const Color &color );
+    int getHeight() const;
 
-	void fill( const Color &color );
+    const Pixel *getScanLine(int line) const;
+
+    Pixel *getScanLine(int line);
+
+    Color getPixelColor(int x, int y) const;
+
+    void setPixelColor(int x, int y, const Color &color);
+
+    void fill(const Color &color);
 
 private:
-	Pixel *data;
-	int width, height;
+    Pixel *data;
+    int width, height;
 };
 
 // The following functions are provided in the file ImageIO.cpp and may be used as is.
@@ -53,7 +60,7 @@ private:
  *  This function returns 0 if the image was saved correctly,
  *  otherwise it will return -1 and print an error message to std::cerr.
  */
-int saveImage( const Image &image, const std::string &filename );
+int saveImage(const Image &image, const std::string &filename);
 
 /** LoadImage loads an image from the BMP file with the filename supplied.
  *  This function returns a dynamically allocated image if the image was
@@ -61,5 +68,5 @@ int saveImage( const Image &image, const std::string &filename );
  *  message to std::cerr. It is the caller's (read your) responsibility to
  *  delete the dynamically allocated image.
  */
-Image *loadImage( const std::string &filename );
+Image *loadImage(const std::string &filename);
 
