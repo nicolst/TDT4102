@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD 17)
 #find_package(SFML 2 REQUIRED graphics window)
 #include_directories(${SFML_INCLUDE_DIR})
 
-add_executable(oving1 "Oving 1/oving1.cpp" "Oving 11/iteratorer.cpp")
+add_executable(oving1 "Oving 1/oving1.cpp")
 
 add_executable(oving2 "Oving 2/oving2.cpp")
 
