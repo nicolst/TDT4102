@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD 17)
 #find_package(SFML 2 REQUIRED graphics window)
 #include_directories(${SFML_INCLUDE_DIR})
 
-add_executable(oving1 "Oving 1/oving1.cpp")
+add_executable(oving1 "Oving 1/oving1.cpp" "Oving 11/iteratorer.cpp")
 
 add_executable(oving2 "Oving 2/oving2.cpp")
 
@@ -47,3 +47,5 @@ if(SFML_FOUND)
 endif()
 
 add_executable(oving10 "Oving 10/main.cpp" "Oving 10/Matrix.h" "Oving 10/Matrix.cpp" "Oving 10/Image.h" "Oving 10/Image.cpp" "Oving 10/ImageIO.cpp" "Oving 10/Vector.h" "Oving 10/Vector.cpp" "Oving 10/Shape.h" "Oving 10/Shape.cpp" "Oving 10/Line.h" "Oving 10/Line.cpp" "Oving 10/Rectangle.h" "Oving 10/Rectangle.cpp" "Oving 10/Canvas.h" "Oving 10/Canvas.cpp")
+
+add_executable(oving11 "Oving 11/main.cpp")
