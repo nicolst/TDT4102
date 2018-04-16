@@ -11,8 +11,7 @@ using namespace std;
 void replace(vector<string> &words, string old, string replacement);
 
 int main() {
-    // Oppgave 1
-    // a)
+    // Oppgave 1a
     vector<string> words = {"Lorem", "Ipsum", "Dolor", "Sit", "Amet", "Consectetur", "Lorem", "Ipsum", "Lorem", "Ipsum"};
 
     for (const string &word : words) {
@@ -20,24 +19,27 @@ int main() {
     }
     cout << endl;
 
-    // b)
+    // Oppgave 1b
     for (auto i = words.rbegin(); i != words.rend(); ++i) {
         cout << *i << " ";
     }
     cout << endl;
 
-    // c)
+    // Oppgave 1c
     replace(words, "Lorem", "Foo");
     for (const string &word : words) {
         cout << word << " ";
     }
 
+    // Oppgave 2a
     set<int> hundred;
     for (int i = 0; i < 101; ++i) hundred.insert(i);
     for (int i = 0; i < 101; ++i) hundred.insert(i);
 
+    cout << *(--(hundred.end())) << endl;
+
     hundred.erase(0);
-    for (int i = 2; 2*i < *hundred.end(); i++) hundred.erase(2*i);
+    for (int i = 2; 2*i < *(hundred.end()--); i++) hundred.erase(2*i);
 
     for (const int &i : hundred) cout << i << " ";
     cout << endl;
@@ -57,7 +59,7 @@ int main() {
     return 0;
 }
 
-
+// Oppgave 1c
 void replace(vector<string> &words, string old, string replacement) {
     for (string &word : words) {
         if (word == old) word = replacement;
