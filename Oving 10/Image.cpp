@@ -27,6 +27,7 @@ int Image::getHeight() const {
 }
 
 const Pixel *Image::getScanLine(int line) const {
+    // return data + (line*width);
     return &data[line*width];
 }
 

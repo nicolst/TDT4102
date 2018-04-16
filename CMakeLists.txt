@@ -2,7 +2,11 @@ cmake_minimum_required(VERSION 3.9)
 project(TDT4102)
 
 set(CMAKE_CXX_STANDARD 17)
-
+#
+#if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+#    set(CMAKE_C_COMPILER "/Library/Developer/CommandLineTools/usr/bin/cc")
+#    set(CMAKE_CXX_COMPILER "/Library/Developer/CommandLineTools/usr/bin/c++")
+#endif()
 #set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake-modules/" ${CMAKE_MODULE_PATH})
 #set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} "D:\\SFML-2.4.2")
 #set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH})
@@ -48,4 +52,4 @@ endif()
 
 add_executable(oving10 "Oving 10/main.cpp" "Oving 10/Matrix.h" "Oving 10/Matrix.cpp" "Oving 10/Image.h" "Oving 10/Image.cpp" "Oving 10/ImageIO.cpp" "Oving 10/Vector.h" "Oving 10/Vector.cpp" "Oving 10/Shape.h" "Oving 10/Shape.cpp" "Oving 10/Line.h" "Oving 10/Line.cpp" "Oving 10/Rectangle.h" "Oving 10/Rectangle.cpp" "Oving 10/Canvas.h" "Oving 10/Canvas.cpp")
 
-add_executable(oving11 "Oving 11/main.cpp")
+add_executable(oving11 "Oving 11/main.cpp" "Oving 11/SimpleSet.cpp" "Oving 11/Person.h" "Oving 11/Person.cpp" )
